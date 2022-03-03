@@ -10,6 +10,15 @@
   let expectedColor = getRandomColor();
   let circleColor = [0, 0, 0];
 
+  function restart() {
+    score = 100;
+    reset();
+    circleColor = [0, 0, 0];
+    failed = false;
+    survivedLevels = 0;
+    message = "when you were ready, click on submit";
+  }
+
   function reset() {
     expectedColor = getRandomColor();
   }
@@ -49,7 +58,11 @@
   </div>
   <h2 style:text-align="center">{message}</h2>
   <div class="center">
-    <Circle disabled={failed} on:click={validate} color={circleColor} />
+    <Circle
+      disabled={failed}
+      on:click={() => (failed ? restart() : validate())}
+      color={circleColor}
+    />
   </div>
   <div class="footer">
     <ColorSlider disabled={failed} name="red" bind:value={circleColor[0]} />

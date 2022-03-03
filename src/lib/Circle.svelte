@@ -11,7 +11,11 @@
   class="circle"
   class:disabled
 >
-  Submit
+  {#if disabled}
+    Restart
+  {:else}
+    Submit
+  {/if}
 </div>
 
 <style>
@@ -26,6 +30,7 @@
     background-color: white;
   }
   .disabled {
+    color: white;
     opacity: 0.2;
   }
 </style>
