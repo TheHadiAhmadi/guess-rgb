@@ -24,13 +24,10 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Remove node_modules
-        run: rm -rf node_modules
-
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: guess-rgb
-          entrypoint: "build/server.js" # same as `out` option in config
+          entrypoint: "server.js" # same as `out` option in config
           root: "build"
 
