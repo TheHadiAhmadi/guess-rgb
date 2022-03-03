@@ -28,6 +28,6 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: guess-rgb
-          entrypoint: "server.js" # same as `out` option in config
+          entrypoint: "./build/server.js"
           root: "build"
 
