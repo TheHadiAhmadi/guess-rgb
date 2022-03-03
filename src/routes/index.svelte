@@ -2,12 +2,11 @@
   import Circle from "$lib/Circle.svelte";
   import ColorSlider from "$lib/ColorSlider.svelte";
   import { color2str, getRandomColor } from "$lib/utils";
-  import { onMount } from "svelte";
 
   let message = "when you were ready, click on submit";
   let survivedLevels = 0;
   let failed = false;
-  let score = 1000;
+  let score = 100;
   let expectedColor = getRandomColor();
   let circleColor = [0, 0, 0];
 
