@@ -28,6 +28,6 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: guess-rgb
-          entrypoint: "./build/server.js"
-          root: "build"
+          entrypoint: "./dist/server.js"
+          root: "."
 
