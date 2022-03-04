@@ -1,40 +1,14 @@
-# create-svelte
+# Guess RGB
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+a simple guessing game. you should guess the color of background and use bottom sliders to make that color
 
-## Creating a project
+## Demo
+https://guess-rgb.deno.dev
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Screenshot
+![Screenshot_20220304_112927](https://user-images.githubusercontent.com/42554876/156715084-c95899aa-8362-47a8-be61-c1f011f155ae.png)
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+## feedback
+you can open Issue or Pull request to improve this game
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+thanks
