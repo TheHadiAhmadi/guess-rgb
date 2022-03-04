@@ -28,6 +28,9 @@
     height: 200px;
     border-radius: 999px;
     background-color: white;
+
+    color: white;
+    text-shadow: 1px 1px 4px black;
   }
   .disabled {
     color: white;

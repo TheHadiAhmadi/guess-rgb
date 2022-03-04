@@ -49,14 +49,23 @@
   }
 </script>
 
+<svelte:head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@300;400;500;700&family=Sofadi+One&display=swap"
+    rel="stylesheet"
+  />
+</svelte:head>
+
 <div class="main" style:background-color={color2str(expectedColor)}>
   <div class="header">
-    <h1 class="message">Mix colors to hide the circle</h1>
-    <h1 class="message score">
+    <p class="message">Mix colors to hide the circle</p>
+    <p class="message score" class:alerting={score < 50 && score >= 0}>
       {score}
-    </h1>
+    </p>
   </div>
-  <h2 style:text-align="center">{message}</h2>
+  <p class="message">{message}</p>
   <div class="center">
     <Circle
       disabled={failed}
@@ -81,12 +90,64 @@
   :global(html),
   :global(body) {
     height: 100%;
+    font-family: "Smooch sans";
+  }
+
+  p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .header {
+    margin-top: 32px;
   }
   .main {
     height: 100%;
     transition: all ease-out 0.5s;
     display: flex;
     flex-direction: column;
+  }
+
+  .alerting {
+    text-shadow: 0px 0px var(--radius) red;
+    animation: alert 0.5s ease-out infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes alert {
+    0% {
+      --radius: 0;
+    }
+    10% {
+      --radius: 1px;
+    }
+    20% {
+      --radius: 2px;
+    }
+    30% {
+      --radius: 3px;
+    }
+    40% {
+      --radius: 4px;
+    }
+    50% {
+      --radius: 5px;
+    }
+    60% {
+      --radius: 6px;
+    }
+    70% {
+      --radius: 7px;
+    }
+    80% {
+      --radius: 8px;
+    }
+    90% {
+      --radius: 9px;
+    }
+    100% {
+      --radius: 10px;
+    }
   }
   .center {
     flex: 1;
@@ -96,14 +157,19 @@
   }
 
   .message {
-    padding: 16px;
-    font-size: 24px;
+    margin-top: 4px;
+    padding-left: 32px;
+    padding-right: 32px;
+    font-size: 32px;
+    font-weight: 400;
     font: monospace;
     text-align: center;
+    color: white;
+    /* text-shadow: 1px 1px 54px black; */
   }
 
   .score {
-    font-size: 48px;
+    font-size: 72px;
   }
 
   .footer {
