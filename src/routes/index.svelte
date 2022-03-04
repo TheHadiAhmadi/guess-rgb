@@ -2,6 +2,7 @@
   import Circle from "$lib/Circle.svelte";
   import ColorSlider from "$lib/ColorSlider.svelte";
   import { color2str, getRandomColor } from "$lib/utils";
+  import githubSVG from "../../static/github.svg";
 
   let message = "when you were ready, click on submit";
   let survivedLevels = 0;
@@ -60,12 +61,24 @@
 
 <div class="main" style:background-color={color2str(expectedColor)}>
   <div class="header">
-    <p class="message">Mix colors to hide the circle</p>
+    <div class="header-bg header-before" />
+    <div class="header-bg level-container">
+      <p class="level-title">level</p>
+      <p class="level">{survivedLevels}</p>
+    </div>
+    <div class="header-bg header-after">
+      <a target="_blank" href="https://github.com/TheHadiAhmadi/guess-rgb">
+        <img src={githubSVG} />
+      </a>
+    </div>
+  </div>
+  <div class="content-header">
+    <p class="message message-top">Mix colors to hide the circle</p>
     <p class="message score" class:alerting={score < 50 && score >= 0}>
       {score}
     </p>
   </div>
-  <p class="message">{message}</p>
+  <p class="message message-bottom">{message}</p>
   <div class="center">
     <Circle
       disabled={failed}
@@ -99,6 +112,58 @@
   }
 
   .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    color: white;
+    font-weight: 300;
+  }
+  .header-bg {
+    background-color: #00000044;
+    border-bottom: 1px solid #00000044;
+  }
+
+  .header .level-container .level-title {
+    font-weight: 300;
+  }
+
+  .header .level-container {
+    align-items: center;
+    padding-top: 4px;
+
+    justify-content: end;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 20%;
+    border: 1px solid #00000032;
+    box-shadow: 0 0 2px #00000022;
+  }
+
+  .level-title {
+    font-size: 18px;
+  }
+
+  .level {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  .header-before {
+    height: 56px;
+    width: 40%;
+  }
+  .header-after {
+    height: 56px;
+    width: 40%;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 16px;
+    display: flex;
+  }
+
+  .content-header {
     margin-top: 32px;
   }
   .main {
@@ -166,6 +231,11 @@
     text-align: center;
     color: white;
     /* text-shadow: 1px 1px 54px black; */
+  }
+
+  .message-top,
+  .message-bottom {
+    opacity: 0.8;
   }
 
   .score {
