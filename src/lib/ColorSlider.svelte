@@ -1,5 +1,6 @@
 <script>
-  import { drag } from "$lib/drag";
+  import { drag } from "./drag";
+
   export let value;
 
   let width;
